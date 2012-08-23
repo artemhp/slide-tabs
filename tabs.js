@@ -1,4 +1,4 @@
-EcomdevTabs = Class.create({
+SlideTabs = Class.create({
     initialize: function(myid, scroller, countItems, wheelScroll) {
 
         var elem = $(myid);
@@ -17,7 +17,7 @@ EcomdevTabs = Class.create({
 
         if(allContents.length>0){
             allContents[0].addClassName('active');
-            new EcomdevScroller(allContents[0], countItems, this.wheelScroll);
+            new SlideTabsScroller(allContents[0], countItems, this.wheelScroll);
         }
 
 
@@ -45,11 +45,11 @@ EcomdevTabs = Class.create({
 
         el.up('li').addClassName('over');
 
-        new EcomdevScroller(content_array[el.tabIdentifier], this.countItems, this.wheelScroll);
+        new SlideTabsScroller(content_array[el.tabIdentifier], this.countItems, this.wheelScroll);
     }
 });
 
-EcomdevScroller = Class.create ({
+SlideTabsScroller = Class.create ({
     initialize: function(content, countItems, wheelScroll) {
 
         var width_slider  = 0;
@@ -148,6 +148,6 @@ EcomdevScroller = Class.create ({
 
 document.observe("dom:loaded", function() {
     $$(".cms-slider-tabs").each(function(el){
-        new EcomdevTabs(el, false, 0);
+        new SlideTabs(el, false, 0);
     });
 });
